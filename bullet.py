@@ -24,7 +24,7 @@ class Bullet(GameEntity):
             self.y += math.cos(self.angle)-math.sin(self.angle*10) * self.speed * delta_time
         #add more patterns here
 
-        if not (0 <= self.x <= 800 and 0 <= self.y <= 600): #check the bounds and kill bullets off screen
+        if not (0 <= self.x <= 800 and 0 <= self.y <= 800): #check the bounds and kill bullets off screen
             self.alive = False
 
     def draw(self, screen):
