@@ -2,6 +2,7 @@ import pygame
 import sys
 from player import Player
 from enemy import Enemy
+from bullet import Bullet
 
 pygame.init()
 screen = pygame.display.set_mode((800,800))
@@ -12,6 +13,7 @@ blue = (0, 71, 171)
 
 p1 = Player(400, 400, blue, 50, 50)
 e1 = [Enemy(50, 50, "linear"), Enemy(50, 50, "circular")]
+b1 = Bullet(blue, 50, 50, 1, 1, 'flower')
 
 bullets = []
 
@@ -34,10 +36,13 @@ def main():
         for j in e1:
             j.update(delta_time, bullets)
 
-        for bullet in bullets[:]: #iterate through a copy of the list
+        for bullet in bullets: #iterate through a copy of the list
             bullet.update(delta_time)
             if not bullet.alive:
                 bullets.remove(bullet)
+
+        for k in e1:
+            k.shoot(bullets)
 
         #render section-----------------------------------
         screen.fill((0, 0, 0))
@@ -47,8 +52,11 @@ def main():
         for i in e1:
             i.draw(screen)
 
-        for k in e1:
-            k.shoot(bullets)
+        for g in bullets:
+            g.draw(screen)
+
+        #b1.draw(screen)
+        #Enemy.shoot(bullets)
 
         pygame.display.flip()
 
