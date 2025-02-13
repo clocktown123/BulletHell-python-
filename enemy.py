@@ -4,7 +4,7 @@ from game_entity import GameEntity
 from bullet import Bullet
 
 class Enemy(GameEntity):
-    def __init__(self, x, y, movement_pattern = "circular", shoot_interval = 20000):
+    def __init__(self, x, y, movement_pattern = "circular", shoot_interval = 2):
         super().__init__(x, y, (250, 50, 50), 20, 20) #parent class constructor
         self.movement_pattern = movement_pattern
         self.speed = 50
@@ -37,7 +37,7 @@ class Enemy(GameEntity):
         angle_step = 2 * math.pi/num_bullets
         for i in range(num_bullets):
             angle = i * angle_step
-            bullets.append(Bullet((i%255, i%100, 150), self.x+self.width/2, self.y+self.height/2, 100, angle, 'flower'))
+            bullets.append(Bullet((i%255, i%100, 150), self.x+self.width/2, self.y+self.height/2, 100, angle, 'square'))
         
 
     #def draw(self, screen):
