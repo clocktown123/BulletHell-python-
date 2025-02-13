@@ -4,7 +4,7 @@ from game_entity import GameEntity
 from bullet import Bullet
 
 class Enemy(GameEntity):
-    def __init__(self, x, y, movement_pattern = "circular", shoot_interval = 2):
+    def __init__(self, x, y, movement_pattern = "circular", shoot_interval = 20000):
         super().__init__(x, y, (250, 50, 50), 20, 20) #parent class constructor
         self.movement_pattern = movement_pattern
         self.speed = 50
@@ -33,7 +33,7 @@ class Enemy(GameEntity):
             self.time_since_last_shot = 0
         
     def shoot(self, bullets):
-        num_bullets = 200 #adjust this for more or less particles on screen
+        num_bullets = 100 #adjust this for more or less particles on screen
         angle_step = 2 * math.pi/num_bullets
         for i in range(num_bullets):
             angle = i * angle_step
