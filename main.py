@@ -41,8 +41,8 @@ def main():
             if not bullet.alive:
                 bullets.remove(bullet)
 
-        for k in e1:
-            k.shoot(bullets)
+        #for k in e1:
+            #k.shoot(bullets)
 
         #render section-----------------------------------
         screen.fill((0, 0, 0))
