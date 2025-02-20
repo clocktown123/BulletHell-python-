@@ -10,8 +10,9 @@ pygame.display.set_caption("BULLET HELL")
 clock = pygame.time.Clock() # controls frame rates
 
 blue = (0, 71, 171)
+Green = (102, 255, 0)
 
-p1 = Player(400, 400, blue, 50, 50)
+p1 = Player(400, 400, Green, 50, 50)
 e1 = [Enemy(50, 50, "linear"), Enemy(50, 50, "circular")]
 b1 = Bullet(blue, 50, 50, 1, 1, 'flower')
 
@@ -41,6 +42,10 @@ def main():
             if not bullet.alive:
                 bullets.remove(bullet)
 
+        for g in bullets:
+            g.collision(p1.x, p1.y)
+            if g.collision(p1.x, p1.y):
+                running = False
         #for k in e1:
             #k.shoot(bullets)
 
