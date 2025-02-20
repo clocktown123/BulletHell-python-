@@ -37,7 +37,7 @@ class Enemy(GameEntity):
         angle_step = 2 * math.pi/num_bullets
         for i in range(num_bullets):
             angle = i * angle_step
-            bullets.append(Bullet((i%255, i%100, 150), self.x+self.width/2, self.y+self.height/2, 100, angle, 'square'))
+            bullets.append(Bullet((i%255, i%100, 150), self.x+self.width/2, self.y+self.height/2, 100, angle, 'flower'))
         
 
     #def draw(self, screen):
