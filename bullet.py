@@ -26,6 +26,10 @@ class Bullet(GameEntity):
 
         if not (0 <= self.x <= 800 and 0 <= self.y <= 800): #check the bounds and kill bullets off screen
             self.alive = False
+    
+    def collision(self, pXpos, pYpos):
+        if self.x + 5 > pXpos and self.x < pXpos + 5 and self.y + 5 > pYpos and self.y < pYpos:
+            return True
 
     def draw(self, screen):
         pygame.draw.rect(screen, self.color, (self.x, self.y, self.width, self.height))
