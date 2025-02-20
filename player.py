@@ -15,4 +15,4 @@ class Player(GameEntity):
             self.y += 5
         
     def draw(self, screen):
-        pygame.draw.rect(screen, (50, 150, 250), (self.x, self.y, 50, 50))
+        pygame.draw.rect(screen, (102, 255, 0), (self.x, self.y, 5, 5))
